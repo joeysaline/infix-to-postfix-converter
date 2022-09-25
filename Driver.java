@@ -1,19 +1,20 @@
-import java.util.*;
 import java.io.*;
+
 /**
  * Represents the main driver program
+ * 
  * @author Joey Saline
  * @version 1.0
  */
-public class Driver{
+public class Driver {
 
-  public static void main(String[] args) throws IOException{
-    
+  public static void main(String[] args) throws IOException {
+
     String filename = "test-data.txt";
     BufferedReader br = new BufferedReader(new FileReader(filename));
     String buffer = br.readLine();
-    while (buffer != null){
-      
+    while (buffer != null) {
+
       ExpressionTree tree = new ExpressionTree(buffer);
       System.out.println(tree.toString() + "\n");
       buffer = br.readLine();
