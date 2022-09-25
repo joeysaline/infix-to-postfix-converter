@@ -5,12 +5,13 @@
  * @version 1.2
  */
 public class Node<T> {
+
   /**
    * Fields
    */
   private T element; // The element of this node.
-  private Node left; // The left child node of this node.
-  private Node right; // The right child node of this node.
+  private Node<T> left; // The left child node of this node.
+  private Node<T> right; // The right child node of this node.
 
   /**
    * Constructs a default Node.
@@ -55,7 +56,7 @@ public class Node<T> {
   /**
    * Sets the left child of this node.
    */
-  public void setLeft(Node left) {
+  public void setLeft(Node<T> left) {
 
     this.left = left;
   }
@@ -65,7 +66,7 @@ public class Node<T> {
    * 
    * @return The left child of this node.
    */
-  public Node getLeft() {
+  public Node<T> getLeft() {
 
     return left;
   }
@@ -73,7 +74,7 @@ public class Node<T> {
   /**
    * Sets the right child of this node.
    */
-  public void setRight(Node right) {
+  public void setRight(Node<T> right) {
 
     this.right = right;
   }
@@ -83,7 +84,7 @@ public class Node<T> {
    * 
    * @return The right child of this node.
    */
-  public Node getRight() {
+  public Node<T> getRight() {
 
     return right;
   }
@@ -94,7 +95,7 @@ public class Node<T> {
    * @param root The reference to a Node object.
    * @return The element of the root Node of type String.
    */
-  public String toString(Node root) {
+  public String toString(Node<T> root) {
 
     String nodeString = "This node contains: ";
     return nodeString += root.getElement();
@@ -126,18 +127,18 @@ public class Node<T> {
       // element is equal recursively test previous and next nodes
       // test previous
       try {
-        if (!this.prev.equals(node.getPrev()))
+        if (!this.left.equals(node.getLeft()))
           return false;
       } catch (NullPointerException e) {
-        if (node.getPrev() != null)
+        if (node.getLeft() != null)
           return false;
       }
       // test next
       try {
-        if (!this.next.equals(node.getNext()))
+        if (!this.right.equals(node.getRight()))
           return false;
       } catch (NullPointerException e) {
-        if (node.getNext() != null)
+        if (node.getRight() != null)
           return false;
       }
       return true;
